@@ -1,0 +1,80 @@
+<!--<h1>register</h1>-->
+<div class="container">
+  <div style="margin: 30px">
+    <h1 class="ion-text-center">Register</h1>
+
+    <form *ngIf="formBuilder" [formGroup]="registerForm" (click)="submit()">
+      <div class="form-group">
+        <label>First Name</label>
+        <input class="form-control" formControlName="fname" type="text"/>
+        <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.fname">
+            <div class="error-message"
+                 *ngIf="registerForm.get('fname').hasError(error.type) && (registerForm.get('fname').dirty || registerForm.get('fname').touched)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>Last Name</label>
+        <input class="form-control" formControlName="lname" type="text"/>
+        <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.lname">
+            <div class="error-message"
+                 *ngIf="registerForm.get('lname').hasError(error.type) && (registerForm.get('lname').dirty || registerForm.get('lname').touched)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" formControlName="email" type="email"/>
+        <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.email">
+            <div class="error-message" *ngIf="registerForm.get('email').hasError(error.type) &&
+               (registerForm.get('email').dirty || registerForm.get('email').touched)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>Password</label>
+        <input class="form-control" formControlName="password" type="password"/>
+        <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.password">
+            <div class="error-message"
+                 *ngIf="registerForm.get('password').hasError(error.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input class="form-control" formControlName="confirmPassword" type="password"/>
+        <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.confirmPassword">
+            <div class="error-message"
+                 *ngIf="registerForm.get('confirmPassword').hasError(error.type) && (registerForm.get('confirmPassword').dirty || registerForm.get('confirmPassword').touched)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+
+      </div>
+
+      <button class="form-control btn btn-primary" [disabled]="!registerForm.valid">Signup</button>
+    </form>
+  </div>
+</div>
