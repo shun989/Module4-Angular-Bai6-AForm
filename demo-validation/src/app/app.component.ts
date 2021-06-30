@@ -77,7 +77,7 @@ export class AppComponent implements OnInit{
             [
               Validators.required,
               Validators.minLength(6),
-              Validators.maxLength(30)
+              Validators.maxLength(30),
             ]
           ),
       }, {
